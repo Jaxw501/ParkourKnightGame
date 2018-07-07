@@ -7,6 +7,7 @@ public class PlayInteraction : MonoBehaviour
 {
     public GameObject ActionPrompt;
     public static bool Focussing = false;
+    public static InteractableObject FocussingOn;
     public GameObject DeactionPrompt;
     public InteractableObject focus;
     void Update()
@@ -56,6 +57,7 @@ public class PlayInteraction : MonoBehaviour
         focus = newFocus;
         DeactionPrompt.SetActive(true);
         Focussing = true;
+        FocussingOn = focus;
 
     }
     void RemoveFocus()

@@ -15,16 +15,16 @@ public class MouseCamera : MonoBehaviour {
 	void Update ()
     {
         
-        //if(PlayInteraction.Focussing == false)
-        //{
-        Cursor.lockState = CursorLockMode.Locked;
-        pitch -= speedV * Input.GetAxis("Mouse Y") * Time.deltaTime * 40;
-        yaw += speedH * wasdMovement.XAxis * Time.deltaTime * 40;
-        currentPitch = pitch;
-        currentYaw = yaw;
+        if(PlayInteraction.Focussing == false)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            pitch -= speedV * Input.GetAxis("Mouse Y") * Time.deltaTime * 40;
+            yaw += speedH * wasdMovement.XAxis * Time.deltaTime * 40;
+            currentPitch = pitch;
+            currentYaw = yaw;
 
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
-        //}
+            transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+        }
 
     }
 }
