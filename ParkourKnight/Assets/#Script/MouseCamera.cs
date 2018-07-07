@@ -14,7 +14,7 @@ public class MouseCamera : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        /////////////////
+        
         //if(PlayInteraction.Focussing == false)
         //{
         Cursor.lockState = CursorLockMode.Locked;
@@ -25,6 +25,6 @@ public class MouseCamera : MonoBehaviour {
 
         transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
         //}
-        ////////////////////
+
     }
 }

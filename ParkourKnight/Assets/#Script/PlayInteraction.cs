@@ -11,15 +11,15 @@ public class PlayInteraction : MonoBehaviour
     public InteractableObject focus;
     void Update()
     {
-        if (Interactables.interactionCanHappen == true)
+        if (InteractableObject.interactionCanHappen == true)
         {
-            if (focus == null || focus != Interactables.interact)
+            if (focus == null || focus != InteractableObject.interact)
             {
                 DeactionPrompt.SetActive(false);
                 ActionPrompt.SetActive(true);
                 if (Input.GetButtonDown("Action"))
                 {
-                    SetFocus(Interactables.interact);
+                    SetFocus(InteractableObject.interact);
                     ActionPrompt.SetActive(false);
                 }
             }
@@ -35,7 +35,7 @@ public class PlayInteraction : MonoBehaviour
                 }
             }
                       
-        } else if(focus != null && Interactables.interactionCanHappen == false)
+        } else if(focus != null && InteractableObject.interactionCanHappen == false)
         {
             DeactionPrompt.SetActive(true);
             ActionPrompt.SetActive(false);

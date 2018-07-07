@@ -19,14 +19,14 @@ public class wasdMovement : MonoBehaviour {
         float adAxis = Input.GetAxis(adInputAxis);
         float wsAxis = Input.GetAxis(wsInputAxis);
         ApplyInput(adAxis, wsAxis);
-        //////////////
+
         //if(PlayInteraction.Focussing == false)
         //{
         yaw += speedH * Input.GetAxis("Mouse X") * Time.deltaTime * 40;
         XAxis = Input.GetAxis("Mouse X");
         transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
         //}
-        ///////////////
+
     }
     private void ApplyInput(float adInput, float wsInput)
     {
