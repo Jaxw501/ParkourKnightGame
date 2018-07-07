@@ -3,82 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(PlayerMotor))]
-public class FocusDirection : MonoBehaviour {
+[RequireComponent(typeof(NavMeshAgent))]
+public class FocusDirection : MonoBehaviour
+{
     Transform target;
-<<<<<<< HEAD
-    PlayerMotor motor;
-    
-	// Use this for initialization
-	void Start () {
-        motor = GetComponent<PlayerMotor>();
-=======
     NavMeshAgent agent;
     public float lockOnPower = 5;
-    
-	// Use this for initialization
-	void Start () {
+    PlayerMotor motor;
+
+    // Use this for initialization
+    void Start()
+    {
         agent = GetComponent<NavMeshAgent>();
-		
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of cbc723c... Follows Target
-=======
->>>>>>> parent of cbc723c... Follows Target
-=======
->>>>>>> parent of cbc723c... Follows Target
-	}
+        motor = GetComponent<PlayerMotor>();
+    }
     void Update()
     {
-        if(PlayInteraction.Focussing == true)
+        print(PlayInteraction.Focussing);
+        if (PlayInteraction.Focussing == true)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            motor.FollowTarget(PlayInteraction.FocussingOn);
-            motor.FaceTarget();
+            target = PlayerCasting.hit.collider.GetComponent<Transform>();
+            agent.SetDestination(target.position);
+
+            FaceTarget();
         }
         else
         {
-            motor.StopFollowingTarget();
+            StopFollowingTarget();
         }
     }
 
-
-=======
-            target = PlayerCasting.hit.collider.GetComponent<Transform>();
-        
-            //FaceTarget();
-        }
-    }
-=======
-            target = PlayerCasting.hit.collider.GetComponent<Transform>();
-        
-            //FaceTarget();
-        }
-    }
->>>>>>> parent of cbc723c... Follows Target
-=======
-            target = PlayerCasting.hit.collider.GetComponent<Transform>();
-        
-            //FaceTarget();
-        }
-    }
->>>>>>> parent of cbc723c... Follows Target
-    public void FollowTarget(InteractableObject newTarget)
-    {
-        agent.updateRotation = false;
-        target = newTarget.transform;
-    }
     public void StopFollowingTarget()
     {
         agent.updateRotation = true;
+        agent.ResetPath();
+        target = null;
     }
     void FaceTarget()
     {
         Vector3 direction = (target.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, direction.y, direction.z));
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0f, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * lockOnPower);
     }
->>>>>>> parent of cbc723c... Follows Target
 }

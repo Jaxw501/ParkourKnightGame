@@ -7,6 +7,7 @@ public class PlayInteraction : MonoBehaviour
 {
     public GameObject ActionPrompt;
     public static bool Focussing = false;
+    public static InteractableObject FocussingOn;
     public GameObject DeactionPrompt;
     public InteractableObject focus;
     void Update()
@@ -34,8 +35,9 @@ public class PlayInteraction : MonoBehaviour
 
                 }
             }
-                      
-        } else if(focus != null && InteractableObject.interactionCanHappen == false)
+
+        }
+        else if (focus != null && InteractableObject.interactionCanHappen == false)
         {
             DeactionPrompt.SetActive(true);
             ActionPrompt.SetActive(false);
@@ -48,7 +50,7 @@ public class PlayInteraction : MonoBehaviour
         }
         else ActionPrompt.SetActive(false);
 
-        
+
 
     }
     void SetFocus(InteractableObject newFocus)
@@ -56,13 +58,13 @@ public class PlayInteraction : MonoBehaviour
         focus = newFocus;
         DeactionPrompt.SetActive(true);
         Focussing = true;
+        FocussingOn = focus;
 
     }
     void RemoveFocus()
     {
         focus = null;
         Focussing = false;
-        FocussingOn = null;
 
     }
 }

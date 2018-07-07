@@ -1,7 +1,7 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
-public class wasdMovement : MonoBehaviour {
+public class wasdMovement : MonoBehaviour
+{
     private string adInputAxis = "Horizontal";
     private string wsInputAxis = "Vertical";
     public float speedH = 2.0f;
@@ -12,20 +12,21 @@ public class wasdMovement : MonoBehaviour {
 
 
     public float moveSpeed;
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        float adAxis = Input.GetAxis(adInputAxis);
-        float wsAxis = Input.GetAxis(wsInputAxis);
-        ApplyInput(adAxis, wsAxis);
 
-        //if(PlayInteraction.Focussing == false)
-        //{
-        yaw += speedH * Input.GetAxis("Mouse X") * Time.deltaTime * 40;
-        XAxis = Input.GetAxis("Mouse X");
-        transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
-        //}
+    // Update is called once per frame
+    void Update()
+    {
+        if (PlayInteraction.Focussing == false)
+        {
+            float adAxis = Input.GetAxis(adInputAxis);
+            float wsAxis = Input.GetAxis(wsInputAxis);
+            ApplyInput(adAxis, wsAxis);
+
+
+            yaw += speedH * Input.GetAxis("Mouse X") * Time.deltaTime * 40;
+            XAxis = Input.GetAxis("Mouse X");
+            transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
+        }
 
     }
     private void ApplyInput(float adInput, float wsInput)

@@ -1,10 +1,12 @@
 ﻿
 using UnityEngine;
 
-public class PlayerCasting : MonoBehaviour {
+public class PlayerCasting : MonoBehaviour
+{
 
     public static float DistFromTarget;
     public static RaycastHit hit;
+    public static Transform target;
     public float DistToTarget;
 
     // Update is called once per frame
@@ -16,6 +18,7 @@ public class PlayerCasting : MonoBehaviour {
             DistToTarget = Hit.distance;
             DistFromTarget = Hit.distance;
             hit = Hit;
+            target = Hit.collider.GetComponent<Transform>();
         }
     }
 }

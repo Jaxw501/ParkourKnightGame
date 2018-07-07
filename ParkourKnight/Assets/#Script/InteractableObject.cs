@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableObject : MonoBehaviour {
+public class InteractableObject : MonoBehaviour
+{
 
     public float radius = 3f;
     private void OnDrawGizmosSelected()
@@ -20,13 +21,12 @@ public class InteractableObject : MonoBehaviour {
         interact = interactable;
         if (interactable != null)
         {
-            print("not null");
             interactionCanHappen = true;
 
         }
         else
         {
-            print("null");
+
             interactionCanHappen = false;
         }
     }
