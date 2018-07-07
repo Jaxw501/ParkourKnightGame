@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractableObject : MonoBehaviour
 {
 
-    public float radius = 3f;
+    public float radius = 5f;
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

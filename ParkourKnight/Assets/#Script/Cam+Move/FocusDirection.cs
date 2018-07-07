@@ -9,22 +9,20 @@ public class FocusDirection : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
     public float lockOnPower = 5;
-    PlayerMotor motor;
+
 
     // Use this for initialization
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        motor = GetComponent<PlayerMotor>();
     }
     void Update()
     {
         print(PlayInteraction.Focussing);
         if (PlayInteraction.Focussing == true)
         {
-            target = PlayerCasting.hit.collider.GetComponent<Transform>();
-            agent.SetDestination(target.position);
-
+            FollowTarget(PlayInteraction.FocussingOn);
+            
             FaceTarget();
         }
         else
@@ -32,7 +30,15 @@ public class FocusDirection : MonoBehaviour
             StopFollowingTarget();
         }
     }
+    public void FollowTarget(InteractableObject newTarget)
+    {
 
+        target = newTarget.transform;
+        agent.stoppingDistance = newTarget.radius * 0.8f;
+        agent.SetDestination(target.position);
+
+
+    }
     public void StopFollowingTarget()
     {
         agent.updateRotation = true;
