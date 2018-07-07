@@ -20,12 +20,16 @@ public class FocusDirection : MonoBehaviour {
 	void Start () {
         agent = GetComponent<NavMeshAgent>();
 		
+<<<<<<< HEAD
+>>>>>>> parent of cbc723c... Follows Target
+=======
 >>>>>>> parent of cbc723c... Follows Target
 	}
     void Update()
     {
         if(PlayInteraction.Focussing == true)
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
             motor.FollowTarget(PlayInteraction.FocussingOn);
             motor.FaceTarget();
@@ -43,6 +47,13 @@ public class FocusDirection : MonoBehaviour {
             //FaceTarget();
         }
     }
+=======
+            target = PlayerCasting.hit.collider.GetComponent<Transform>();
+        
+            //FaceTarget();
+        }
+    }
+>>>>>>> parent of cbc723c... Follows Target
     public void FollowTarget(InteractableObject newTarget)
     {
         agent.updateRotation = false;
