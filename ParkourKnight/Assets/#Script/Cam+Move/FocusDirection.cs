@@ -18,7 +18,6 @@ public class FocusDirection : MonoBehaviour
     }
     void Update()
     {
-        print(PlayInteraction.Focussing);
         if (PlayInteraction.Focussing == true)
         {
             FollowTarget(PlayInteraction.FocussingOn);
