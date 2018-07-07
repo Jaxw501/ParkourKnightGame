@@ -20,11 +20,13 @@ public class InteractableObject : MonoBehaviour {
         interact = interactable;
         if (interactable != null)
         {
+            print("not null");
             interactionCanHappen = true;
 
         }
-        else { 
-        
+        else
+        {
+            print("null");
             interactionCanHappen = false;
         }
     }
