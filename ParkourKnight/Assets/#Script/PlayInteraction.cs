@@ -64,6 +64,7 @@ public class PlayInteraction : MonoBehaviour
     {
         focus = null;
         Focussing = false;
+        FocussingOn = null;
 
     }
 }
