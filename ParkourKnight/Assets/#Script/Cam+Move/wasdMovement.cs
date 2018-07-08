@@ -48,11 +48,11 @@ public class wasdMovement : MonoBehaviour
 
     private void ad(float input)
     {
-        transform.Translate(Vector3.right * input * moveSpeed * Time.deltaTime * 0.75f);
+        transform.Translate(Vector3.right * input * moveSpeed * Time.deltaTime * 1f);
     }
     private void ws(float input)
     {
-        transform.Translate(Vector3.forward * input * moveSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * input * moveSpeed * Time.deltaTime *RunDirectional.speedIncrease);
         if (input > 0)
         {
             forward = true;
