@@ -7,8 +7,8 @@ public class RunDirectional : MonoBehaviour {
     private float inputV;
     private float inputH;
     public static float speedIncrease = 0;
-    private bool run = false;
-    //private bool roll = false;
+    private bool run;
+    private bool roll;
 
 	void Start () {
         anim = GetComponent<Animator>();
