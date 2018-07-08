@@ -19,14 +19,8 @@ public class wasdMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayInteraction.Focussing == false)
-        {
-            MovementControls(1f);
-        }
-        if (PlayInteraction.Focussing == true)
-        {
-            MovementControls(0f);
-        }
+        MovementControls(0f);
+
     }
 
     private void MovementControls(float CanTurn)
@@ -36,8 +30,12 @@ public class wasdMovement : MonoBehaviour
         ApplyInput(adAxis, wsAxis);
 
 
-        yaw += speedH * Input.GetAxis("Mouse X") * Time.deltaTime * 40 * CanTurn;
-        transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
+        yaw += speedH * Input.GetAxis("Mouse X") * Time.deltaTime * 40;
+        if (PlayInteraction.Focussing == false)
+        {
+            transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
+        }
+
     }
 
     private void ApplyInput(float adInput, float wsInput)
@@ -69,4 +67,5 @@ public class wasdMovement : MonoBehaviour
             forward = false;
         }
     }
+
 }
