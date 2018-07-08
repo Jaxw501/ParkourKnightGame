@@ -24,7 +24,6 @@ public class FocusDirection : MonoBehaviour
             if (PlayInteraction.FocussingOn.Enemy == true)
             {
                 FollowTarget(PlayInteraction.FocussingOn);
-
                 FaceTarget();
             }                
         }
