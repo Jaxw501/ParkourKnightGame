@@ -16,34 +16,39 @@ public class FocusDirection : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
     }
+
     void Update()
     {
         if (PlayInteraction.Focussing == true)
         {
-            FollowTarget(PlayInteraction.FocussingOn);
-            
-            FaceTarget();
+            if (PlayInteraction.FocussingOn.Enemy == true)
+            {
+                FollowTarget(PlayInteraction.FocussingOn);
+
+                FaceTarget();
+            }                
         }
         else
         {
             StopFollowingTarget();
         }
     }
+
     public void FollowTarget(InteractableObject newTarget)
     {
 
         target = newTarget.transform;
-        agent.stoppingDistance = newTarget.radius * 0.8f;
+        agent.stoppingDistance = newTarget.radius * 0.9f;
         agent.SetDestination(target.position);
-
-
     }
+
     public void StopFollowingTarget()
     {
         agent.updateRotation = true;
         agent.ResetPath();
         target = null;
     }
+
     void FaceTarget()
     {
         Vector3 direction = (target.position - transform.position).normalized;

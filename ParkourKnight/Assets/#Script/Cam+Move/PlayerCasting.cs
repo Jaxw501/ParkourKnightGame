@@ -8,6 +8,7 @@ public class PlayerCasting : MonoBehaviour
     public static RaycastHit hit;
     public static Transform target;
     public float DistToTarget;
+    
 
     // Update is called once per frame
     void Update()

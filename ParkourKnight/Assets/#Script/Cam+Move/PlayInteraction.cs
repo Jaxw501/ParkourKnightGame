@@ -6,13 +6,23 @@ using UnityEngine.UI;
 public class PlayInteraction : MonoBehaviour
 {
     public GameObject ActionPrompt;
-    public static bool Focussing = false;
-    public static InteractableObject FocussingOn;
+    public static bool Focussing;
+    public static InteractableObject FocussingOn = null;
     public GameObject DeactionPrompt;
     public InteractableObject focus;
     void Update()
     {
-        if (InteractableObject.interactionCanHappen == true)
+        if (Focussing == true)
+        {
+            if (FocussingOn.Enemy == true)
+            {
+
+            }
+        }
+        
+
+        if (InteractableObject.interactionCanHappen == true 
+            && InteractableObject.isEnemy == true)
         {
             if (focus == null || focus != InteractableObject.interact)
             {
@@ -37,7 +47,9 @@ public class PlayInteraction : MonoBehaviour
             }
 
         }
-        else if (focus != null && InteractableObject.interactionCanHappen == false)
+        else if (focus != null 
+            && InteractableObject.interactionCanHappen == false 
+            && InteractableObject.isEnemy == true)
         {
             DeactionPrompt.SetActive(true);
             ActionPrompt.SetActive(false);

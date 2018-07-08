@@ -13,20 +13,25 @@ public class InteractableObject : MonoBehaviour
     }
     public static bool interactionCanHappen = false;
     public static InteractableObject interact;
+    public bool Enemy = false;
+    public static bool isEnemy;
 
 
+    void Start()
+    {
+        
+    }
     void OnMouseOver()
     {
         InteractableObject interactable = PlayerCasting.hit.collider.GetComponent<InteractableObject>();
         interact = interactable;
         if (interactable != null)
         {
+            isEnemy = interactable.Enemy;
             interactionCanHappen = true;
-
         }
         else
         {
-
             interactionCanHappen = false;
         }
     }
